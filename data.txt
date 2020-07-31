@@ -1,27 +1,30 @@
-exercide 2
+exercide 3
 drop table model
 drop table vehicule
 drop table proprietaire
 drop table posseder
 drop table proprietaire
-execice 3
-create SCHEMA voitures;
+execice 4
 use voitures;
 create TABLE model(numero_type varchar(20) PRIMARY key , nom_type varchar(80) );
 create TABLE vehicule(matricule varchar(80) PRIMARY key , nom  varchar(80),typemodel varchar(20),FOREIGN KEY(typemodel) REFERENCES model(numero_type) );
 create TABLE proprietaire(num int PRIMARY key AUTO_INCREMENT, nom varchar(80) );
 create TABLE posseder (matvehi varchar(80),FOREIGN KEY (matvehi) REFERENCES vehicule(matricule),num_cli int,FOREIGN KEY (num_cli) REFERENCES proprietaire(num)  );
+exercice 5
 insert into  proprietaire (nom) VALUES("tonton");
+exercice 6
 LOAD DATA INFILE '/home/gabriel/datapropio.txt' REPLACE INTO TABLE `model` 
 FIELDS TERMINATED BY ';' 
 ENCLOSED BY '"' 
 ESCAPED BY '\\' 
 LINES TERMINATED BY '\r\n';
+exercice 7
 LOAD DATA INFILE '/home/gabriel/datafield.csv' REPLACE INTO TABLE `model` 
 FIELDS TERMINATED BY ';' 
 ENCLOSED BY '"' 
 ESCAPED BY '\\' 
 LINES TERMINATED BY '\r\n';
+exercice 8
 insert into  vehicule VALUES("22771","renaul clio","211491");
 insert into  vehicule VALUES("22772","renaul logan","211431");
 insert into  posseder VALUES("22771",1);
