@@ -1,0 +1,31 @@
+create SCHEMA voitures;
+use voitures;
+create TABLE model(numero_type varchar(20) PRIMARY key , nom_type varchar(80) );
+create TABLE vehicule(matricule varchar(80) PRIMARY key , nom  varchar(80),typemodel varchar(20),FOREIGN KEY(typemodel) REFERENCES model(numero_type) );
+create TABLE proprietaire(num int PRIMARY key AUTO_INCREMENT, nom varchar(80) );
+create TABLE posseder (matvehi varchar(80),FOREIGN KEY (matvehi) REFERENCES vehicule(matricule),num_cli int,FOREIGN KEY (num_cli) REFERENCES proprietaire(num)  );
+insert into  proprietaire (nom) VALUES("tonton");
+LOAD DATA INFILE '/home/gabriel/datapropio.txt' REPLACE INTO TABLE `model` 
+FIELDS TERMINATED BY ';' 
+ENCLOSED BY '"' 
+ESCAPED BY '\\' 
+LINES TERMINATED BY '\r\n';
+LOAD DATA INFILE '/home/gabriel/datafield.csv' REPLACE INTO TABLE `model` 
+FIELDS TERMINATED BY ';' 
+ENCLOSED BY '"' 
+ESCAPED BY '\\' 
+LINES TERMINATED BY '\r\n';
+insert into  vehicule VALUES("22771","renaul clio","211491");
+insert into  vehicule VALUES("22772","renaul logan","211431");
+insert into  posseder VALUES("22771",1);
+select * from article where prix < 1500
+select * from article where prix between 100 and 500
+select prix,reference from article where description = "caméscopes"
+select code,designation,prix from article oder by prix  desc where categorie = "informatique"
+select * from client oder by ville asc where age < 40 
+SELECT count(email) DISTINCT email  FROM client where email is not null
+select sum(prix)/(select count(prix) as nb_article from client where 1 ) as prix_totale from client where 1;
+select * from client group by adresse,ville where 1
+select * from article where code = (select code_article from facture where mat_cli =)
+ select * from client where matricule = (select mat_cli from facture where (select sum(prix) from factur where 1) > 1500)
+
