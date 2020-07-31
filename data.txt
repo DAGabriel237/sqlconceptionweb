@@ -28,4 +28,9 @@ select sum(prix)/(select count(prix) as nb_article from client where 1 ) as prix
 select * from client group by adresse,ville where 1
 select * from article where code = (select code_article from facture where mat_cli =)
  select * from client where matricule = (select mat_cli from facture where (select sum(prix) from factur where 1) > 1500)
+ select * from article where code = (select code_article from facture where mat_cli =)
+ select * from client where matricule = (select mat_cli from facture where (select sum(prix) from factur where 1) > 5000)
+select * from vehicule where matricule = (select matvehi from posseder where num_cli= ?)
+
+ 
 
