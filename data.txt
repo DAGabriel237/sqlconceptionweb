@@ -1,3 +1,6 @@
+exercice 1-2
+voitures.sql
+
 exercide 3
 drop table model
 drop table vehicule
