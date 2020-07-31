@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `voitures1`
+-- Base de données :  `voitures`
 --
 
 -- --------------------------------------------------------
@@ -55,12 +55,7 @@ CREATE TABLE `proprietaire` (
   `nom` varchar(80) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Déchargement des données de la table `proprietaire`
---
 
-INSERT INTO `proprietaire` (`num`, `nom`) VALUES
-(1, 'tonton');
 
 -- --------------------------------------------------------
 
