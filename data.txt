@@ -54,6 +54,19 @@ exercice 18
  select * from client where matricule = (select mat_cli from facture where (select sum(prix) from factur where 1) > 5000)
  exercice 21
 select * from vehicule where matricule = (select matvehi from posseder where num_cli= ?)
+exercice 22
+SELECT DISTINCT nom FROM `proprietaire`
+WHERE num  IN(SELECT DISTINCT num_cli  FROM `posseder`
+WHERE matvehi  IN (
+  SELECT DISTINCT matricule  FROM `vehicule`
+WHERE typemodel  IN (
+  SELECT numero_type
+  FROM `model`
+)));
+
+exercice 23
+select * from vehicule where matricule = (select num_cli from posseder where matvehi= ?)
+
 
  
 
